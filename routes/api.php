@@ -25,5 +25,6 @@ Route::resource('groupes', App\Http\Controllers\API\GroupeAPIController::class);
 Route::get('groups/', [App\Http\Controllers\API\GroupeAPIController::class,'index']);
 Route::post('groups/', [App\Http\Controllers\API\GroupeAPIController::class,'store']);
 Route::post('groups/{id}', [App\Http\Controllers\API\GroupeAPIController::class,'update']);
+Route::post('groups/{id}/{id_groupe}', [App\Http\Controllers\API\UserAPIController::class,'update_user']);
 Route::delete('groups/{id}', [App\Http\Controllers\API\GroupeAPIController::class,'destroy']);
 Route::get('users-verif/{nom}', [App\Http\Controllers\API\UserAPIController::class,'verifier']);

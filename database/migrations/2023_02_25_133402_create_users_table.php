@@ -21,7 +21,8 @@ class CreateUsersTable extends Migration
             $table->string('prénom')->nullable();
             $table->integer('actif')->nullable();
             $table->dateTime('date_création')->nullable();
-            $table->foreignId('groupe_id')->references('id')->on('groupes')->onDelete('cascade');
+            $table->unsignedBigInteger('groupe_id')->nullable();
+            $table->foreign('groupe_id')->references('id')->on('groupes')->onDelete('cascade');
             $table->timestamps();
             $table->softDeletes();
         });

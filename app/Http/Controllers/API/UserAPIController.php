@@ -137,4 +137,19 @@ class UserAPIController extends AppBaseController
 
         return $this->sendResponse($user->toArray(), 'User retrieved successfully');
     }
+    public function update_user($id,$id_groupe, UpdateUserAPIRequest $request)
+    {
+        $input = $request->all();
+
+        /** @var User $user */
+        $user =User::where('nom',$id)->where('groupe_id',$id_groupe)->first();
+
+        if (empty($user)) {
+            return $this->sendError('User not found');
+        }
+
+        $user->update($input);
+
+        return $this->sendResponse($user->toArray(), 'User updated successfully');
+    }
 }
